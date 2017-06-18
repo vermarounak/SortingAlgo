@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:ng="http://angularjs.org">
+<head>
+<script type="text/javascript"
+	src="extResources/jquery/jquery-2.1.0.min.js"></script>
+
+<script type="text/javascript">
+	var $jq = jQuery.noConflict();
+</script>
+</script>
+
+<script type="text/javascript">
+	var url = window.location.href;
+	if ((url.indexOf("?cd=") <= -1)) {
+		window.location.href = "index.html?cd=" + (new Date()).getTime();
+	}
+</script>
+
+<script type="text/javascript"
+	src="extResources/jquery/jquery-2.1.0.min.js"></script>
+<script src="extResources/jquery/jquery.i18n.properties-min-1.0.9.js"></script>
+<script src="extResources/IE/json2.min.js"></script>
+<script src="extResources/IE/es5-shim.min.js"></script>
+<script src="extResources/angular/angular-1.4.min.js"></script>
+<script src="extResources/angular/angular-route-1.4.min.js"></script>
+<script src="extResources/angular/angular-resource-1.4.min.js"></script>
+<script src="extResources/angular/ui-bootstrap-tpls-0.14.2.min.js"></script>
+
+<!-- Load custom scripts via require.js -->
+<script type="text/javascript" src="appResources/js/require.js"
+	data-main="appResources/js/main.js"></script>
+
+<!-- CSS loading -->
+<link href="appResources/css/style.min.css" rel="stylesheet" />
+<link href="extResources/TwitterBootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link href="extResources/TwitterBootstrap/css/bootstrap-tour.min.css"
+	rel="stylesheet" />
+
+<title>Number Sorting</title>
+
+</head>
+
+<body ng-controller="IndexController" id="entireBody">
+
+	<!-- Header Starts -->
+	<div ng-include src="'header.html'"></div>
+	<!-- Header Ends -->
+	<div style="text-align: right"">
+		<button class="btn btn-primary btn-sm" id="starttour">Start
+			Tour</button>
+	</div>
+	<div ng-view style="height: auto; min-height: 600px;"></div>
+	<!-- Footer Start -->
+	<div ng-include src="'footer.html'"></div>
+	<!-- Footer Ends -->
+	<script src="extResources/TwitterBootstrap/js/bootstrap.min.js"></script>
+	<script src="extResources/TwitterBootstrap/js/bootstrap-tour.min.js"></script>
+	<script src="appResources/js/tour.js"></script>
+</body>
+</html>

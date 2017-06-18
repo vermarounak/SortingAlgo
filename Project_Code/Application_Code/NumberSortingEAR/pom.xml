@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Using Parent pom to build whole project with single pom file -->
+	<parent>
+		<groupId>NumberSortingParent</groupId>
+		<artifactId>NumberSortingParent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>NumberSortingEAR</groupId>
+	<artifactId>NumberSortingEAR</artifactId>
+	<packaging>ear</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>NumberSorting</groupId>
+			<artifactId>NumberSorting</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<earSourceDirectory>EarContent</earSourceDirectory>
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<version>1.0</version>
+</project>

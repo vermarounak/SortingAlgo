@@ -1,0 +1,66 @@
+<div id="wrapperSection">
+	<div id="currentSection">
+		<form name="userInputForm" ng-submit="sortUserInput()" novalidate>
+			<div style="margin-left: 40px; color: red;">
+				<span data-ng-bind="errorMessage"></span>
+			</div>
+			<div class="form-group" style="margin-left: 40px;"
+				ng-class="{ 'has-error' : userInputForm.name.$invalid && !userInputForm.name.$pristine }">
+				<label><span data-ng-bind="homePage.inputLabel"></span></label>
+				<textarea type="text" name="userInput" class="form-control"
+					ng-model="user.inputValues" required />
+				</p>
+			</div>
+			<button type="submit" class="btn btn-primary"
+				style="margin-left: 40px;" ng-disabled="userInputForm.$invalid">Submit</button>
+		</form>
+		<table style="margin-left: 40px; margin-top: 20px;">
+			<tr>
+				<td style="height: 40px; width: 400px;"><label><span
+						data-ng-bind="homePage.outputLabel"></span></label></td>
+				<td
+					data-ng-repeat="sortedNumber in processedData.sortedNumbers track by sortedNumber.index">
+					<label><span data-ng-bind="sortedNumber.value"></span></label>
+				</td>
+			</tr>
+			<tr>
+				<td style="height: 40px; width: 400px;"><label><span
+						data-ng-bind="homePage.processingTimeLabel"></span></label></td>
+				<td><label><span
+						data-ng-bind="processedData.processingTime"></span></label></td>
+			</tr>
+			<tr>
+				<td style="height: 40px; width: 400px;"><label><span
+						data-ng-bind="homePage.numberOfSwaps"></span></label></td>
+				<td><label><span data-ng-bind="processedData.swapCount"></span></label></td>
+			</tr>
+		</table>
+	</div>
+	<div id="historicSection">
+		<label style="margin-left: 28px; font-size: 20px;"><span
+			data-ng-bind="homePage.previousResultsLabel"></span></label>
+		<table border="1"
+			style="margin-left: 30px; width: 91%; table-layout: fixed">
+			<tr>
+				<td style="width: 10%;" align="center"><label><span
+						data-ng-bind="homePage.serialNumber"></span></label></td>
+				<td style="width: 45%;" align="center"><label><span
+						data-ng-bind="homePage.previousUserInputColumnName"></span></label></td>
+				<td style="width: 45%;" align="center"><label><span
+						data-ng-bind="homePage.previousResultColumnName"></span></label></td>
+			</tr>
+			<tr data-ng-repeat="data in previousData track by data.serialNo">
+				<td align="center"><label><span
+						data-ng-bind="data.serialNo"></span></label></td>
+				<td style="word-wrap: break-word;"><label
+					style="margin-left: 5px;"><span
+						data-ng-bind="data.inputValue"></span></label></td>
+				<td style="word-wrap: break-word;"><label
+					style="margin-left: 5px;"><span
+						data-ng-bind="data.sortedNumbers"></span></label></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
