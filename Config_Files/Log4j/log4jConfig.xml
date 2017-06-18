@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true"
+	xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="NumberSortingError" class="org.apache.log4j.RollingFileAppender">
+		<param value="${jboss.server.log.dir}/NumberSortingError.log" name="File" />
+		<param name="maxFileSize" value="5MB" />
+		<param name="maxBackupIndex" value="1000" />
+		<param name="Threshold" value="ERROR" />
+		<param name="Append" value="TRUE" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param value="%d{yyyy-MM-dd HH:mm:ss}|%m%n" name="ConversionPattern" />
+		</layout>
+	</appender>
+
+	<logger name="com.tcs.numbersorting">
+		<level value="ERROR" />
+		<appender-ref ref="NumberSortingError" />
+	</logger>
+	
+</log4j:configuration>
